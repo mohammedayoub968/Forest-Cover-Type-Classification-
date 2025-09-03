@@ -1,3 +1,50 @@
+# 🌲 Forest Cover Type Classification
+
+This project predicts the **forest cover type** from cartographic variables using different **tree-based machine learning models**.  
+The dataset is based on the **Covertype Dataset**, which includes various environmental and geographical features.  
+The goal is to compare traditional decision trees with advanced ensemble methods and optimize them with hyperparameter tuning.
+
+---
+
+## 📂 Dataset
+- **Source**: [Forest Cover Type Dataset on Kaggle](https://www.kaggle.com/datasets/zsinghrahulk/covertype-forest-cover-types)  
+- **Target Variable**: `Cover_Type` (7 categories of forest cover types)  
+- **Features**:  
+  - Elevation, Aspect, Slope  
+  - Hillshade measures (at 9am, Noon, 3pm)  
+  - Distances to hydrology, roadways, and fire points  
+  - Wilderness Area (one-hot encoded)  
+  - Soil Type (40 categories, one-hot encoded)  
+
+Data preprocessing steps:
+- Dropped unnecessary columns (`Unnamed: 0, 1, 2`)  
+- Checked and removed duplicates  
+- No missing values were found  
+- Train/test split (80/20) with **stratified sampling**  
+
+---
+
+## ⚙️ Project Features
+- Load dataset directly with **kagglehub**
+- Exploratory Data Analysis (EDA): distributions, correlations
+- Train/test split with stratification
+- Train and evaluate multiple ML models:
+  - ✅ Decision Tree
+  - ✅ Random Forest
+  - ✅ Gradient Boosting (GBM)
+  - ✅ CatBoost
+- Feature importance ranking & visualization
+- Experiment with **Top 15 features only**
+- Hyperparameter tuning with:
+  - `GridSearchCV` (Decision Tree)
+  - `RandomizedSearchCV` (Random Forest)
+- Model evaluation using:
+  - Accuracy
+  - Confusion Matrix
+  - Classification Report (Precision, Recall, F1-score)
+
+---
+
 ## 📊 Model Performance Report
 
 ### 🔹 Decision Tree (All Features)
@@ -61,3 +108,7 @@
 - Simpler models (Decision Trees) perform reasonably well but lack robustness.  
 - Boosting methods (GBM, CatBoost) underperformed in this setup, but could improve with advanced tuning.  
 
+
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn catboost kagglehub
